@@ -46,7 +46,7 @@ function App() {
 
   return (
     <div className="App">
-    <h1>ToDo app</h1>
+    <h1 style={{display: "flex", justifyContent: "center"}}>ToDo app</h1>
     <form style={{alignItems: "baseline", justifyContent: "center", display: "flex", marginBottom: "40px"}}>
       
       <TextField
@@ -54,10 +54,10 @@ function App() {
       label="write a todo"
       value={todoInput}
       onChange={(e) => setTodoInput(e.target.value)}
-      style={{width:"350px", marginLeft: "10px"}}
+      style={{width:"400px", marginLeft: "10px"}}
       />
       <Button style={{marginLeft: "10px", marginRight: "10px"}} type="submit" variant="contained" color="primary" onClick={addTodo}>
-       primary
+       add
       </Button>
       </form> 
 
