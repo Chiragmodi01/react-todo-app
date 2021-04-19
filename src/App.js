@@ -5,6 +5,7 @@ import { Button } from '@material-ui/core';
 import { db } from './firebase_config';
 import firebase from "firebase";
 import TodoListItem from './todo';
+import React from 'react';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
     getTodos();
 
   }, []);
+
 
   function getTodos(){
     db.collection("todos").onSnapshot(function (querySnapshot) {
@@ -41,25 +43,48 @@ function App() {
 
     })
     setTodoInput("");
-
   }
+
+  // this.handleChange = (e) =>{
+  //   if(e.target.value.length >0) {
+  //     this.setState({
+  //       disabled: false
+  //   })};
+  //   }
+
+
+
+
+  //  TodoForm.addEventListner('input',() => {
+  //    if (TextField.value.length > 0){
+  //      Button.removeAttribute('disabled');
+  //    } else {
+  //     Button.setAttribute('disabled', 'disabled');
+  //    }
+  //  });
+
 
   return (
     <div className="App">
     <h1 style={{display: "flex", justifyContent: "center"}}>ToDo app</h1>
-    <form style={{alignItems: "baseline", justifyContent: "center", display: "flex", marginBottom: "40px"}}>
+    <form className="TodoForm" style={{alignItems: "baseline", justifyContent: "center", display: "flex", marginBottom: "40px"}}>
       
       <TextField
       id="standard-basic"
+      className="inputField"
       label="write a todo"
       value={todoInput}
       onChange={(e) => setTodoInput(e.target.value)}
+      // onChange={(e) => React.handleChange}
       style={{width:"400px", marginLeft: "10px"}}
       />
-      <Button style={{marginLeft: "10px", marginRight: "10px"}} type="submit" variant="contained" color="primary" onClick={addTodo}>
+
+      <Button className="BtnAdd" style={{marginLeft: "10px", marginRight: "10px"}} type="submit" variant="contained" color="primary" onClick={addTodo}>
        add
       </Button>
+
       </form> 
+    
 
       {todos.map((todo) => (
       <TodoListItem

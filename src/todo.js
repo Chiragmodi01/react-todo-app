@@ -15,8 +15,9 @@ export default function TodoListItem({todo, inprogress, id}) {
         db.collection("todos").doc(id).delete();
     }
 
+
     return (
-        <div style={{display: "flex", alignItems: "center", justifyContent: "center", width: "100vw", marginTop: "13px"}}>
+        <div style={{display: "flex", alignItems: "center", justifyContent: "center", width: "auto", marginTop: "13px"}}>
             <ListItem style={{width: "350px", marginRight: "20px"}}>
                 <ListItemText primary={todo}
                 secondary={inprogress ? "In Progress" : "Completed"}/>
